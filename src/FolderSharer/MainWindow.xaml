@@ -3,10 +3,261 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FolderSharer"
+        xmlns:local="clr-namespace:FolderSharer.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}"
+        MinHeight="{Binding MinHeight}"
+        MinWidth="{Binding MinWidth}"
+        Height="480"
+        Width="720"
+        Background="{Binding BackgroundColor, Mode=TwoWay}">
+
+    <Window.DataContext>
+        <local:MainViewModel x:Name="mvm" />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground"
+                    Value="#FF734546" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Padding"
+                    Value="0,5" />
+        </Style>
+
+        <Style TargetType="TabItem">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"
+                                   FontSize="21"
+                                   Width="100"
+                                   TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground"
+                    Value="#FF383838" />
+            <Setter Property="Margin"
+                    Value="0,5" />
+            <Setter Property="Padding"
+                    Value="2,5" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="0,5" />
+            <Setter Property="Padding"
+                    Value="13,5" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding"
+                    Value="6" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="ListViewItem">
+            <Setter Property="Width"
+                    Value="Auto" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Stretch" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=FieldDef.DispDetail, Mode=OneWay}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="13" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="13"
+                    FontStretch="Expanded"
+                    Background="White">
+
+            <TabItem Header="Share"
+                     DataContext="{Binding ShareViewModel}">
+                <Grid Margin="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="1"
+                               Text="Path"
+                               Padding="4" />
+                    
+                    <TextBox Grid.Column="1"
+                             Grid.Row="2"
+                             Text="{Binding SelectedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    
+                    <Button Grid.Column="2"
+                            Grid.Row="2"
+                            Content="Select..."
+                            Padding="8,4"
+                            Command="{Binding SelectPathCmd}" />
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="3"
+                               Text="Name"
+                               Padding="4" />
+                    
+                    <TextBox Grid.Column="1"
+                             Grid.Row="4"
+                             Grid.ColumnSpan="2"
+                             Text="{Binding ShareName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="5"
+                               Text="Description"
+                               Padding="4" />
+                    
+                    <TextBox Grid.Column="1"
+                             Grid.Row="6"
+                             Grid.ColumnSpan="2"
+                             Text="{Binding ShareDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button Grid.Column="1"
+                            Grid.Row="7"
+                            Grid.ColumnSpan="2"
+                            Content="Create"
+                            Command="{Binding CreateShareCmd}"
+                            Padding="0,12"
+                            Margin="0,8" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="UnShare"
+                     DataContext="{Binding UnShareViewModel}">
+                <Grid Margin="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="1"
+                            Content="Get shared paths"
+                            Command="{Binding GetSharedPathsCmd}" />
+
+                    <TextBlock Grid.Row="2"
+                               Text="Shared paths in system" />
+
+                    <DataGrid Grid.Row="3"
+                              ItemsSource="{Binding SharedPaths}"
+                              SelectedItem="{Binding SelectedSharedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button Grid.Row="4"
+                            Padding="0,12"
+                            Margin="0,8"
+                            Content="UnShare"
+                            Command="{Binding UnShareCmd}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="About ℹ"
+                     DataContext="{Binding AboutViewModel}"
+                     Background="White">
+                <Grid Margin="13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="1">
+                        <Image  Source="{Binding AppIcon}"
+                                Width="128"
+                                HorizontalAlignment="Left"
+                                Margin="13" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="{Binding AppName}"
+                                   FontSize="21" />
+                        <TextBlock Text="{Binding AppVersion}" />
+                        <TextBlock Text="{Binding Copyright}" />
+                        <TextBlock Text="{Binding Developer}" />
+                        <TextBlock>
+                            <Hyperlink NavigateUri="{Binding HomeUrl}"
+                                       Command="{Binding NavigateHomeUrlCmd}">
+                                Project Home
+                            </Hyperlink>
+
+                        </TextBlock>
+                        <TextBlock>
+                            <Hyperlink NavigateUri="{Binding DownloadUrl}"
+                                       Command="{Binding NavigateDownloadUrlCmd}">
+                                Download Latest
+                            </Hyperlink>
+
+                        </TextBlock>
+                        <TextBlock>
+                            <Hyperlink NavigateUri="{Binding IssuesUrl}"
+                                       Command="{Binding NavigateIssuesUrlCmd}">
+                                Submit Issues and Requests
+                            </Hyperlink>
+
+                        </TextBlock>
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+
+            <TextBlock Text="{Binding Status, Mode=TwoWay}"
+                       Foreground="{Binding StatusColor, Mode=TwoWay}" />
+
+            <TextBlock Margin="5,0">
+                    <Hyperlink Command="{Binding GoToUrlCmd}">
+                        <Hyperlink.Inlines>
+                            <Run Text="{Binding Passage, Mode=TwoWay}" />
+                        </Hyperlink.Inlines>
+                    </Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
