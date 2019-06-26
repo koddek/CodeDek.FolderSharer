@@ -94,11 +94,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FolderSharer.Core\FolderSharer.Core.csproj">
-      <Project>{9037082f-1a40-4221-9271-c5a27e33e964}</Project>
-      <Name>FolderSharer.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
