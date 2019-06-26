@@ -64,6 +64,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShareViewModel.cs" />
+    <Compile Include="ViewModels\UnShareViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
