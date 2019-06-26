@@ -8,5 +8,9 @@ namespace FolderSharer.ViewModels
 {
     public sealed class ShareViewModel
     {
+        public ShareViewModel(MainViewModel mainViewModel)
+        {
+
+        }
     }
 }

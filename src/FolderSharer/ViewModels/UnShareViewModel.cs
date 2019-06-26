@@ -8,5 +8,9 @@ namespace FolderSharer.ViewModels
 {
     public sealed class UnShareViewModel
     {
+        public UnShareViewModel(MainViewModel mainViewModel)
+        {
+
+        }
     }
 }

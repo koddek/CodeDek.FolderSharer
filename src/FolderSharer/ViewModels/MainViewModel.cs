@@ -24,15 +24,15 @@ namespace FolderSharer.ViewModels
             Status = text;
             Passage = passage;
             PassageUrl = url;
-            MapViewModel = new MapViewModel(this);
-            UnMapViewModel = new UnMapViewModel(this);
+            ShareViewModel = new ShareViewModel(this);
+            UnShareViewModel = new UnShareViewModel(this);
         }
 
         public string Title { get; } = "CodeDek's Folder Mapper";
         public double MinHeight { get; } = 400.0;
         public double MinWidth { get; } = 600.0;
-        public MapViewModel MapViewModel { get; }
-        public UnMapViewModel UnMapViewModel { get; }
+        public ShareViewModel ShareViewModel { get; }
+        public UnShareViewModel UnShareViewModel { get; }
         public AboutViewModel AboutViewModel { get; } = new AboutViewModel();
 
         public string Status
