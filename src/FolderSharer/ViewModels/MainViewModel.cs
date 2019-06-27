@@ -12,8 +12,8 @@ namespace FolderSharer.ViewModels
 {
     public sealed class MainViewModel : ObservableObject
     {
-        private Brush _statusColor;
-        private Brush _backgroundColor;
+        private Brush _statusColor = Brushes.Black;
+        private Brush _backgroundColor = Brushes.LightGoldenrodYellow;
         private string _passageUrl;
         private string _passage;
         private string _status;
@@ -28,7 +28,7 @@ namespace FolderSharer.ViewModels
             UnShareViewModel = new UnShareViewModel(this);
         }
 
-        public string Title { get; } = "CodeDek's Folder Mapper";
+        public string Title { get; } = "CodeDek's Folder Sharer";
         public double MinHeight { get; } = 400.0;
         public double MinWidth { get; } = 600.0;
         public ShareViewModel ShareViewModel { get; }
