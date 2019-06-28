@@ -200,8 +200,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button Margin="0,5,1.5,0"
-                                Content="Clear Selection"
-                                Command="{Binding ClearSelectionCmd}" />
+                                Content="Clear Items"
+                                Command="{Binding ClearItemsCmd}" />
                         <Button Margin="1.5,5,0,0"
                                 Grid.Column="1"
                                 Content="UnShare"

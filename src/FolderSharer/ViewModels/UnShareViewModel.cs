@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using CodeDek.Lib;
 using CodeDek.Lib.Mvvm;
 
@@ -26,7 +21,7 @@ namespace FolderSharer.ViewModels
             get => _selectedSharedPath;
             set => Set(ref _selectedSharedPath, value)
                 .Alert(nameof(UnShareCmd))
-                .Alert(nameof(ClearSelectionCmd));
+                .Alert(nameof(ClearItemsCmd));
         }
 
         public Cmd GetSharedPathsCmd => new Cmd(() =>
@@ -36,6 +31,8 @@ namespace FolderSharer.ViewModels
             {
                 SharedPaths.Add(new Share { Path = item.path, Name = item.name, Type = item.type });
             }
+
+            OnPropertyChanged(nameof(ClearItemsCmd));
         });
 
         public Cmd UnShareCmd => new Cmd(() =>
@@ -61,7 +58,12 @@ namespace FolderSharer.ViewModels
 
         }, () => SelectedSharedPath != null);
 
-        public Cmd ClearSelectionCmd => new Cmd(() => SelectedSharedPath = null, () => SelectedSharedPath != null);
+        public Cmd ClearItemsCmd => new Cmd(() =>
+        {
+            SelectedSharedPath = null;
+            SharedPaths.Empty();
+            OnPropertyChanged(nameof(ClearItemsCmd));
+        }, () => SelectedSharedPath != null || SharedPaths.Count > 0);
 
         public class Share
         {
