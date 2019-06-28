@@ -1,8 +1,7 @@
 # CodeDek.FolderSharer
 Easily share or unshare any folder in windows Below you can find its usage versions and change logs. Check out [releases](https://github.com/codedek/CodeDek.FolderSharer/releases) to get a copy.
-
-![GitHub](https://img.shields.io/github/license/codedek/CodeDek.FolderSharer.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/codedek/CodeDek.FolderSharer/total.svg)
+![GitHub](https://img.shields.io/github/license/codedek/codedek.foldersharer.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/codedek/CodeDek.foldersharer/total.svg)
 ![GitHub release](https://img.shields.io/github/release/codedek/codedek.foldersharer.svg)
 
 ### License & Copyright
