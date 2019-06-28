@@ -2,7 +2,7 @@
 ![Logo](art/ic_folder_sharer.ico)
 
 Easily share or unshare any folder in windows.
-Scroll down to the downloads section to get a specific version and to view its change log, or just go to [releases](https://github.com/codedek/CodeDek.FolderSharer/releases) to get the latest.
+Scroll down to the [downloads](#downloads) section to get a specific version and to view its change log, or just go to [releases](https://github.com/codedek/CodeDek.FolderSharer/releases) to get the latest.
 
 ![GitHub](https://img.shields.io/github/license/codedek/codedek.foldersharer.svg)
 ![GitHub All Releases](https://img.shields.io/github/downloads/codedek/CodeDek.foldersharer/total.svg)
@@ -43,6 +43,6 @@ Licensed under the [GPL-3.0](LICENSE).
 ### Submit Issues or Requests
 If you have any issues or requests, you can submit your [issues here](https://github.com/codedek/CodeDek.FolderSharer/issues).
 
-### Downloads
+### (#Downloads)
 [Version 1.0](https://github.com/codedek/CodeDek.FolderSharer/releases/tag/v1.0) **-** [Change log](CHANGELOG.md)
 
