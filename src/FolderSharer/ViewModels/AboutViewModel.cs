@@ -16,8 +16,8 @@ namespace FolderSharer.ViewModels
         public string Home => "https://github.com/codedek/CodeDek.FolderSharer";
         public string Download => "https://github.com/codedek/CodeDek.FolderSharer/releases";
         public string Issues => "https://github.com/codedek/CodeDek.FolderSharer/issues";
-        public string License => "https://github.com/codedek/CodeDek.FolderSharer/LICENSE";
-        public string Changelog => "https://github.com/codedek/CodeDek.FolderSharer/CHANGELOG.md";
+        public string License => "https://github.com/codedek/CodeDek.FolderSharer/blob/master/LICENSE";
+        public string Changelog => "https://github.com/codedek/CodeDek.FolderSharer/blob/master/CHANGELOG.md";
         public string AppName => "Folder Sharer";
         public string AppVersion => $"v{FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion}";
         public string Copyright => "© 2019 CodeDek. All Rights Reserved";
