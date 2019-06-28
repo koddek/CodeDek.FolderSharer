@@ -11,6 +11,7 @@ Licensed under the [GPL-3.0](LICENSE).
 ### Dependencies
 - [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) (Required to be installed on your machine)
 
+## Features
 ### How to Share a Folder
 1. Press the Select button to select a path/folder
 2. Enter a Name [Optional]
