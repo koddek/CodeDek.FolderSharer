@@ -12,7 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "art", "art", "{80CBC827-5186-4797-BDAF-528016F01A34}"
 	ProjectSection(SolutionItems) = preProject
+		art\about.png = art\about.png
 		art\ic_folder_sharer.ico = art\ic_folder_sharer.ico
+		art\share.png = art\share.png
+		art\unshare.png = art\unshare.png
 	EndProjectSection
 EndProject
 Global
