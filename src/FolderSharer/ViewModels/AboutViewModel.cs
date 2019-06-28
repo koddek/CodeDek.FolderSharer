@@ -12,7 +12,7 @@ namespace FolderSharer.ViewModels
 {
     public sealed class AboutViewModel
     {
-        //public byte[] AppIcon { get; set; } = File.ReadAllBytes(@"D:\.repo\_product\CodeDek.FolderSharer\art\ic_folder_mapper.ico");
+        public byte[] AppIcon { get; set; } = File.ReadAllBytes(@"D:\.repo\_product\CodeDek.FolderSharer\art\ic_folder_sharer.ico");
         public string Home { get; set; } = "https://github.com/codedek/CodeDek.FolderSharer";
         public string Download { get; set; } = "https://github.com/codedek/CodeDek.FolderSharer/releases";
         public string Issues { get; set; } = "https://github.com/codedek/CodeDek.FolderSharer/issues";
