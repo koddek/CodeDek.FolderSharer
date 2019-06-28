@@ -43,6 +43,6 @@ Licensed under the [GPL-3.0](LICENSE).
 ### Submit Issues or Requests
 If you have any issues or requests, you can submit your [issues here](https://github.com/codedek/CodeDek.FolderSharer/issues).
 
-### (#Downloads)
+### Downloads
 [Version 1.0](https://github.com/codedek/CodeDek.FolderSharer/releases/tag/v1.0) **-** [Change log](CHANGELOG.md)
 
